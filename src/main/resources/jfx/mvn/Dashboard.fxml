@@ -6,29 +6,47 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1330.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.Controller_Dashboard">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1230.0"
+   xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.Controller_Dashboard">
    <top>
-      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="1351.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="1230.0" spacing="10.0" styleClass="white-background" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="68.0" prefWidth="118.0" text="LOGO">
+            <Label prefHeight="68.0" prefWidth="153.0" text="LOGO">
                <font>
-                  <Font size="41.0" />
+                  <Font size="38.0" />
                </font>
             </Label>
-            <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" prefHeight="48.0" prefWidth="1564.0" spacing="10.0">
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="48.0" prefWidth="896.0" spacing="10.0" styleClass="round-layout" stylesheets="@css/style.css">
                <children>
-                  <TextField prefHeight="36.0" prefWidth="1042.0" />
-                  <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #FFFFFF;">
+                  <TextField alignment="CENTER" maxWidth="-Infinity" prefHeight="39.0" prefWidth="830.0" promptText="Search" styleClass="transparant" stylesheets="@css/style.css">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fitHeight="42.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #FFFFFF;">
                      <image>
                         <Image url="@img/search_hires.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
-            <Circle fill="DODGERBLUE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
+            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="179.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="136.0" text="Nama User">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="66.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/User.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
          </children>
       </HBox>
    </top>
