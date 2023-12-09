@@ -2,6 +2,13 @@
     -fx-background-color:#fff;
 }
 
+.base-color{
+    -fx-background-color:#264653
+}
+.second-color{
+    -fx-background-color:#2A9D8F
+}
+
 .transparant{
     -fx-background-color:rgba(0,0,0,0);
 }
