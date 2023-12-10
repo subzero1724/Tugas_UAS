@@ -16,7 +16,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1230.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.Controller_Dashboard">
    <top>
-      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="70.0" prefWidth="1230.0" spacing="2.0" styleClass="white-background" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="1230.0" spacing="2.0" styleClass="white-background" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
          <children>
             <Label prefHeight="68.0" prefWidth="137.0" text="LOGO">
                <font>
@@ -61,19 +61,14 @@
    <left>
       <VBox maxHeight="-Infinity" prefHeight="575.0" prefWidth="175.0" spacing="5.0" styleClass="white-background" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="32.0" prefWidth="66.0" text="Product">
-               <font>
-                  <Font name="Arial Bold Italic" size="15.0" />
-               </font>
-            </Label>
-            <HBox fx:id="icon1" alignment="CENTER" onMouseClicked="#icon1_click" onMouseEntered="#icon1_enter" onMouseExited="#icon1_exit" prefHeight="52.0" prefWidth="172.0" spacing="10.0" styleClass="icon1" stylesheets="@css/style.css">
+            <HBox fx:id="Menu_1" alignment="CENTER" onMouseClicked="#Menu_1Click" onMouseEntered="#Menu_1Enter" onMouseExited="#Menu_1Exit" prefHeight="52.0" prefWidth="172.0" spacing="10.0" styleClass="icon1" stylesheets="@css/style.css">
                <children>
                   <ImageView fx:id="icon1_imgview" fitHeight="21.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Endow@4x.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="16.0" prefWidth="63.0" styleClass="menu-label" stylesheets="@css/style.css" text="Home">
+                  <Label fx:id="MenuLabel1" prefHeight="16.0" prefWidth="63.0" styleClass="menu-label" stylesheets="@css/style.css" text="Home">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
@@ -83,17 +78,17 @@
                   <Insets />
                </opaqueInsets>
                <cursor>
-                  <Cursor fx:constant="DEFAULT" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="52.0" prefWidth="172.0" spacing="10.0" styleClass="menu-item" stylesheets="@css/style.css">
+            <HBox alignment="CENTER" prefHeight="52.0" prefWidth="172.0" spacing="10.0" styleClass="icon1" stylesheets="@css/style.css">
                <children>
                   <ImageView fitHeight="21.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Endow@4x.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="16.0" prefWidth="66.0" text="Voucher">
+                  <Label prefHeight="16.0" prefWidth="66.0" styleClass="menu-label" stylesheets="@css/style.css" text="Voucher">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
@@ -103,14 +98,14 @@
                   <Insets />
                </opaqueInsets>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="52.0" prefWidth="175.0" spacing="10.0" styleClass="keranjang-view1" stylesheets="@css/style.css">
+            <HBox alignment="CENTER" prefHeight="52.0" prefWidth="175.0" spacing="10.0" styleClass="icon1" stylesheets="@css/style.css">
                <children>
                   <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" styleClass="keranjang-view1">
                      <image>
                         <Image url="@img/Cart@4x.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="16.0" prefWidth="76.0" stylesheets="@css/style.css" text="Keranjang">
+                  <Label prefHeight="16.0" prefWidth="76.0" styleClass="menu-label" stylesheets="@css/style.css" text="Keranjang">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
