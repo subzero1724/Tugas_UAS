@@ -1,7 +1,7 @@
+module-info.class
+jfx\mvn\SecondaryController.class
+jfx\mvn\KonektorSQL.class
 jfx\mvn\Controller.class
 jfx\mvn\App.class
 jfx\mvn\PrimaryController.class
-module-info.class
 jfx\mvn\Controller_Dashboard.class
-jfx\mvn\SecondaryController.class
-jfx\mvn\KonektorSQL.class

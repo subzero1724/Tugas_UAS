@@ -2,57 +2,94 @@ package jfx.mvn;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.event.*;
+import javafx.fxml.*;
+
+import java.io.IOException;
 import java.net.URL;
-import javafx.fxml.FXML;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.VBox;
 
 public class Controller_Dashboard {
-    URL imageUrl_1En, imageUrl_1Ex;
+    URL imageUrl_1En, imageUrl_1Ex, imageUrl_2En, imageUrl_2Ex;
+    private AtomicBoolean Menu1_clicked = new AtomicBoolean(false);
+    private AtomicBoolean Menu2_clicked = new AtomicBoolean(false);
 
     public Controller_Dashboard() {
-        imageUrl_1En = getClass().getResource("/jfx/mvn/img/Endow.png");
-        imageUrl_1Ex = getClass().getResource("/jfx/mvn/img/Endow@4x.png");
+        imageUrl_1En = getClass().getResource("/jfx/mvn/img/box_black.png");
+        imageUrl_1Ex = getClass().getResource("/jfx/mvn/img/box_white.png");
+
+        imageUrl_2En = getClass().getResource("/jfx/mvn/img/Endow@4x.png");
+        imageUrl_2Ex = getClass().getResource("/jfx/mvn/img/Endow.png");
     }
 
     @FXML
-    private Label MenuLabel1;
+    private BorderPane Border_Pane;
+    @FXML
+    private Label MenuLabel1, MenuLabel2;
 
     @FXML
     private HBox Menu_1;
+    @FXML
+    private HBox Menu_2;
 
     @FXML
-    private ImageView icon1_imgview;
+    private ImageView icon1_imgview, icon2_imgview;
+
+    private void setMenuStyles(HBox menu, Label label) {
+        menu.setStyle("-fx-background-color: #F5D7DB");
+        label.setStyle("-fx-text-fill: #1B3358");
+    }
 
     private void resetMenuStyles() {
-        // Reset styles for all menu items
-        Menu_1.setStyle("-fx-background-color: transparent");
-        // Menu_2.setStyle("-fx-background-color: transparent");
-        // Reset text color for all labels
-        MenuLabel1.setTextFill(Color.web("#000000"));
-        // MenuLabel2.setTextFill(Color.web("#000000"));
-        // Reset images for all ImageViews
+        Menu1_clicked.set(false);
+        Menu2_clicked.set(false);
+
+        Menu_1.setStyle("-fx-background-color: #1B3358");
+        MenuLabel1.setStyle("-fx-text-fill: #FFFFFF");
         icon1_imgview.setImage(new Image(imageUrl_1Ex.toString()));
-        // icon2_imgview.setImage(new Image(imageUrl_2Ex.toString()));
+
+        Menu_2.setStyle("-fx-background-color: #1B3358");
+        MenuLabel2.setStyle("-fx-text-fill: #FFFFFF");
+        icon2_imgview.setImage(new Image(imageUrl_2Ex.toString()));
+    }
+
+    // private void handleMenuClick(HBox menu, AtomicBoolean clicked, Label label,
+    // ImageView icon) throws IOException {
+    // resetMenuStyles();
+    // clicked.set(true);
+    // menu.setStyle("-fx-background-color: #264653");
+    // label.setStyle("-fx-text-fill: #FFFFFF;");
+    // icon.setImage(new Image(imageUrl_1En.toString()));
+    // VBox view = FXMLLoader.load(getClass().getResource("primary.fxml"));
+    // Border_Pane.setCenter(view);
+    // }
+
+    @FXML
+    void Menu_1Click(MouseEvent event) throws IOException {
+        if (!Menu1_clicked.get()) {
+            resetMenuStyles();
+            setMenuStyles(Menu_1, MenuLabel1);
+            icon1_imgview.setImage(new Image(imageUrl_1En.toString()));
+
+            Menu1_clicked.set(true);
+        }
     }
 
     @FXML
-    void Menu_1Enter(MouseEvent event) {
-        icon1_imgview.setImage(new Image(imageUrl_1En.toString()));
-    }
+    void Menu_2Click(MouseEvent event) throws IOException {
+        if (!Menu2_clicked.get()) {
+            resetMenuStyles();
+            setMenuStyles(Menu_2, MenuLabel2);
+            icon2_imgview.setImage(new Image(imageUrl_2En.toString()));
 
-    @FXML
-    void Menu_1Exit(MouseEvent event) {
-        icon1_imgview.setImage(new Image(imageUrl_1Ex.toString()));
-    }
-
-    @FXML
-    void Menu_1Click(MouseEvent event) {
-        Menu_1.setStyle("-fx-background-color: #264653");
-        MenuLabel1.setStyle("-fx-text-fill: #FFFFFF;");
-        icon1_imgview.setImage(new Image(imageUrl_1En.toString()));
+            Menu2_clicked.set(true);
+        }
     }
 }

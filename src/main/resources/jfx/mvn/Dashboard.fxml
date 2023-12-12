@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -14,41 +13,33 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1230.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.Controller_Dashboard">
+<BorderPane fx:id="Border_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1230.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.Controller_Dashboard">
    <top>
-      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="1230.0" spacing="2.0" styleClass="white-background" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="59.0" prefWidth="1230.0" spacing="2.0" styleClass="base-color" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="68.0" prefWidth="137.0" text="LOGO">
-               <font>
-                  <Font size="38.0" />
-               </font>
-            </Label>
+            <HBox prefHeight="82.0" prefWidth="157.0" />
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="48.0" prefWidth="844.0" spacing="10.0" styleClass="round-layout" stylesheets="@css/style.css">
                <children>
-                  <TextField alignment="CENTER" maxWidth="-Infinity" prefHeight="39.0" prefWidth="784.0" promptText="Search" stylesheets="@css/style.css">
+                  <TextField alignment="CENTER" maxWidth="-Infinity" prefHeight="16.0" prefWidth="784.0" promptText="Search" styleClass="transparant" stylesheets="@css/style.css">
                      <font>
                         <Font size="21.0" />
                      </font>
-                     <styleClass>
-                        <String fx:value="white-background" />
-                        <String fx:value="transparant" />
-                     </styleClass>
                   </TextField>
-                  <ImageView fitHeight="42.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #FFFFFF;">
+                  <ImageView fitHeight="33.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #FFFFFF;">
                      <image>
-                        <Image url="@img/search_hires.png" />
+                        <Image url="@img/search.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="179.0">
+            <HBox alignment="CENTER" prefHeight="66.0" prefWidth="179.0" spacing="2.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="136.0" text="Nama User">
+                  <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="95.0" text="Nama User" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="66.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/User.png" />
                      </image>
@@ -59,16 +50,17 @@
       </HBox>
    </top>
    <left>
-      <VBox maxHeight="-Infinity" prefHeight="575.0" prefWidth="175.0" spacing="5.0" styleClass="white-background" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" prefHeight="657.0" prefWidth="175.0" spacing="5.0" styleClass="base-color" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
          <children>
-            <HBox fx:id="Menu_1" alignment="CENTER" onMouseClicked="#Menu_1Click" onMouseEntered="#Menu_1Enter" onMouseExited="#Menu_1Exit" prefHeight="52.0" prefWidth="172.0" spacing="10.0" styleClass="icon1" stylesheets="@css/style.css">
+            <Separator prefWidth="175.0" />
+            <HBox fx:id="Menu_1" alignment="CENTER" onMouseClicked="#Menu_1Click" prefHeight="52.0" prefWidth="172.0" spacing="10.0" styleClass="base-color" stylesheets="@css/style.css">
                <children>
-                  <ImageView fx:id="icon1_imgview" fitHeight="21.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="icon1_imgview" fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/Endow@4x.png" />
+                        <Image url="@img/box_white.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="MenuLabel1" prefHeight="16.0" prefWidth="63.0" styleClass="menu-label" stylesheets="@css/style.css" text="Home">
+                  <Label fx:id="MenuLabel1" prefHeight="16.0" prefWidth="63.0" styleClass="menu-label" stylesheets="@css/style.css" text="Product" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
@@ -81,14 +73,14 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="52.0" prefWidth="172.0" spacing="10.0" styleClass="icon1" stylesheets="@css/style.css">
+            <HBox fx:id="Menu_2" alignment="CENTER" onMouseClicked="#Menu_2Click" prefHeight="52.0" prefWidth="172.0" spacing="10.0" styleClass="icon1" stylesheets="@css/style.css">
                <children>
-                  <ImageView fitHeight="21.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="icon2_imgview" fitHeight="21.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/Endow@4x.png" />
+                        <Image url="@img/Endow.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="16.0" prefWidth="66.0" styleClass="menu-label" stylesheets="@css/style.css" text="Voucher">
+                  <Label fx:id="MenuLabel2" prefHeight="16.0" prefWidth="66.0" styleClass="menu-label" stylesheets="@css/style.css" text="Voucher" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
@@ -97,6 +89,9 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </HBox>
             <HBox alignment="CENTER" prefHeight="52.0" prefWidth="175.0" spacing="10.0" styleClass="icon1" stylesheets="@css/style.css">
                <children>
@@ -105,7 +100,7 @@
                         <Image url="@img/Cart@4x.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="16.0" prefWidth="76.0" styleClass="menu-label" stylesheets="@css/style.css" text="Keranjang">
+                  <Label prefHeight="16.0" prefWidth="76.0" styleClass="menu-label" stylesheets="@css/style.css" text="Keranjang" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
@@ -116,14 +111,16 @@
                </opaqueInsets>
             </HBox>
             <Separator prefWidth="200.0" />
+            <HBox prefHeight="260.0" prefWidth="175.0" />
+            <HBox prefHeight="131.0" prefWidth="175.0" styleClass="second-color" stylesheets="@css/style.css" />
          </children>
       </VBox>
    </left>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="1055.0" BorderPane.alignment="CENTER">
+   <right>
+      <AnchorPane onMouseClicked="#Menu_2Click" prefHeight="200.0" prefWidth="1055.0" styleClass="menu-label" BorderPane.alignment="CENTER">
          <children>
-            <HBox layoutX="39.0" layoutY="29.0" prefHeight="172.0" prefWidth="977.0" style="-fx-background-radius: 10;" styleClass="white-background" stylesheets="@css/style.css" />
+            <HBox layoutX="39.0" layoutY="23.0" prefHeight="172.0" prefWidth="977.0" style="-fx-background-radius: 10;" styleClass="white-background" stylesheets="@css/style.css" />
          </children>
       </AnchorPane>
-   </center>
+   </right>
 </BorderPane>

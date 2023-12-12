@@ -3,58 +3,19 @@
 }
 
 .base-color{
-    -fx-background-color:#264653
+    -fx-background-color:#1B3358
 }
 .second-color{
-    -fx-background-color:#2A9D8F
+    -fx-background-color:#F5D7DB
 }
 
 .transparant{
     -fx-background-color:rgba(0,0,0,0);
+    -fx-text-fill: #fff
 }
 
 .round-layout{
     -fx-border-radius:25;
-    -fx-border-color:#D7D7D7
+    -fx-border-color:#D7D7D7;
+
 }
-
-.icon1 {
-}
-
-.icon1:hover {
-    -fx-background-color: #264653;
-}
-
-.icon1:hover .menu-label {
-    -fx-text-fill: white;
-    /* Mengubah warna teks label menjadi putih saat hover */
-}
-
-
-
-/* Anda mungkin perlu menggunakan kode Java untuk mengubah gambar saat hover karena CSS tidak mendukung perubahan gambar untuk ImageView di JavaFX */
-/* Contoh kode Java:
-icon1.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
-    imageView.setImage(new Image("path/to/hover-image.png"));
-});
-*/
-
-.icon1:focused,.icon1:selected {
-    /* Gaya untuk icon1 saat dipilih */
-}
-
-.icon1:focused .menu-label,.icon1:selected .menu-label {
-    -fx-text-fill: white;
-    /* Mengubah warna teks label menjadi putih saat dipilih */
-}
-
-/* Sama seperti hover, Anda mungkin perlu menggunakan kode Java untuk mengubah gambar saat dipilih */
-/* Contoh kode Java:
-icon1.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-    imageView.setImage(new Image("path/to/selected-image.png"));
-});
-*/
-/* .mouse-moved:hover {
-    -fx-background-color:#2A9D8F;
-    -fx-text-fill: #fff
-} */
