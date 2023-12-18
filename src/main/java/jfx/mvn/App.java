@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -12,12 +13,24 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-
+    double x, y = 0;
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Dashboard"), 650, 420);
+        scene = new Scene(loadFXML("Login_Page"), 650, 420);
+        stage.initStyle(StageStyle.UNDECORATED);
+
+        scene.setOnMousePressed(event -> {
+            x = event.getX();
+            y = event.getY();
+        });
+
+        scene.setOnMouseDragged(event -> {
+            stage.setX(event.getX() - x);
+            stage.setY(event.getY() - y);
+        });
+
         stage.setScene(scene);
         stage.show();
     }

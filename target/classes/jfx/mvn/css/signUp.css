@@ -1,0 +1,16 @@
+.round_background{
+    -fx-background-radius: 35
+}
+.white-bg{
+    -fx-background-color:#fff
+}
+.base-color {
+    -fx-background-color: #1B3358
+}
+
+.second-color {
+    -fx-background-color: #F5D7DB
+}
+.txtfield{
+    -fx-background-color: rgba(0, 0, 0, 0);
+}

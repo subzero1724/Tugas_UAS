@@ -33,7 +33,7 @@ public class Controller {
     }
 
     @FXML
-    private TextField Email_Addres;
+    private TextField Username_Box;
 
     @FXML
     private TextField Password;
@@ -44,11 +44,12 @@ public class Controller {
     @FXML
     void L_Button(ActionEvent event) {
         try {
-            String Username = Email_Addres.getText();
+            String Username = Username_Box.getText();
             String Pass = Password.getText();
 
             stat = con.createStatement();
-            String sql = "select * from register_user where Email = '" + Username + "' and Password = '" + Pass + "'";
+            String sql = "select * from register_user where Username = '" + Username + "' and Password = '" + Pass
+                    + "'";
 
             ResultSet rs = stat.executeQuery(sql);
 
@@ -61,7 +62,7 @@ public class Controller {
                 Parent root = loader.load();
 
                 // Get the current stage from one of the components
-                Stage stage = (Stage) Email_Addres.getScene().getWindow();
+                Stage stage = (Stage) Username_Box.getScene().getWindow();
 
                 // Set the scene to Dashboard
                 stage.setScene(new Scene(root));
@@ -78,7 +79,7 @@ public class Controller {
 
             else {
                 JOptionPane.showMessageDialog(null, "Login Gagal");
-                Email_Addres.setText("");
+                Username_Box.setText("");
                 Password.setText("");
             }
 
@@ -86,27 +87,25 @@ public class Controller {
             e.printStackTrace();
         }
 
-        System.out.println(Email_Addres.getText());
+        System.out.println(Username_Box.getText());
         System.out.println(Password.getText());
-    }
-
-    void insert() {
-        try {
-            stat = con.createStatement();
-            stat.executeUpdate("insert into register_user values('" + Email_Addres.getText() + "','"
-                    + Password.getText() + "')");
-            JOptionPane.showMessageDialog(null, "Insert Successfully");
-            Email_Addres.setText("");
-            Password.setText("");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
     @FXML
     void Sign_Up(MouseEvent event) {
-        insert();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("signUp.fxml"));
+            Parent root = loader.load();
+
+            // Get the current stage from one of the components
+            Stage stage = (Stage) Username_Box.getScene().getWindow();
+
+            // Set the scene to Dashboard
+            stage.setScene(new Scene(root));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // insert();
         System.out.println("Hello World");
     }
 

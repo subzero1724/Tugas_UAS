@@ -7,16 +7,19 @@ import javafx.fxml.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class Controller_Dashboard {
+public class Controller_Dashboard implements Initializable {
+
     URL imageUrl_1En, imageUrl_1Ex, imageUrl_2En, imageUrl_2Ex;
     private AtomicBoolean Menu1_clicked = new AtomicBoolean(false);
     private AtomicBoolean Menu2_clicked = new AtomicBoolean(false);
@@ -31,16 +34,27 @@ public class Controller_Dashboard {
 
     @FXML
     private BorderPane Border_Pane;
+
     @FXML
-    private Label MenuLabel1, MenuLabel2;
+    private AnchorPane Main_Page;
+
+    @FXML
+    private Label MenuLabel1;
+
+    @FXML
+    private Label MenuLabel2;
 
     @FXML
     private HBox Menu_1;
+
     @FXML
     private HBox Menu_2;
 
     @FXML
-    private ImageView icon1_imgview, icon2_imgview;
+    private ImageView icon1_imgview;
+
+    @FXML
+    private ImageView icon2_imgview;
 
     private void setMenuStyles(HBox menu, Label label) {
         menu.setStyle("-fx-background-color: #F5D7DB");
@@ -60,6 +74,10 @@ public class Controller_Dashboard {
         icon2_imgview.setImage(new Image(imageUrl_2Ex.toString()));
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
     // private void handleMenuClick(HBox menu, AtomicBoolean clicked, Label label,
     // ImageView icon) throws IOException {
     // resetMenuStyles();
@@ -78,6 +96,9 @@ public class Controller_Dashboard {
             setMenuStyles(Menu_1, MenuLabel1);
             icon1_imgview.setImage(new Image(imageUrl_1En.toString()));
 
+            AnchorPane view = FXMLLoader.load(getClass().getResource("Product_Page.fxml"));
+            Border_Pane.setCenter(view);
+
             Menu1_clicked.set(true);
         }
     }
@@ -88,6 +109,8 @@ public class Controller_Dashboard {
             resetMenuStyles();
             setMenuStyles(Menu_2, MenuLabel2);
             icon2_imgview.setImage(new Image(imageUrl_2En.toString()));
+            VBox view = FXMLLoader.load(getClass().getResource("secondary.fxml"));
+            Border_Pane.setCenter(view);
 
             Menu2_clicked.set(true);
         }

@@ -19,3 +19,12 @@
     -fx-border-color:#D7D7D7;
 
 }
+.vbox-rounded {
+    -fx-background-radius: 10;
+        -fx-background-color: red;
+        -fx-padding: 0;
+        -fx-border-radius: 10;
+        -fx-border-width: 0;
+        /* Atau ukuran yang Anda inginkan */
+        -fx-border-color: transparent;
+}
