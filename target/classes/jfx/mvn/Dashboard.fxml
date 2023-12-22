@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="Border_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1230.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.Controller_Dashboard">
+   <top>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="59.0" prefWidth="1230.0" spacing="2.0" styleClass="base-color" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="59.0" prefWidth="228.0" />
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="48.0" prefWidth="844.0" spacing="10.0" styleClass="round-layout" stylesheets="@css/style.css">
+               <children>
+                  <TextField alignment="CENTER" maxWidth="-Infinity" prefHeight="16.0" prefWidth="784.0" promptText="Search" styleClass="transparant" stylesheets="@css/style.css">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fitHeight="33.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #FFFFFF;">
+                     <image>
+                        <Image url="@img/search.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="66.0" prefWidth="179.0" spacing="2.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="95.0" text="Nama User" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/User.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox maxHeight="-Infinity" prefHeight="657.0" prefWidth="175.0" spacing="5.0" styleClass="base-color" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
+         <children>
+            <Separator prefWidth="175.0" />
+            <HBox fx:id="Menu_1" alignment="CENTER" onMouseClicked="#Menu_1Click" prefHeight="52.0" prefWidth="172.0" spacing="10.0" styleClass="base-color" stylesheets="@css/style.css">
+               <children>
+                  <ImageView fx:id="icon1_imgview" fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/box_white.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="MenuLabel1" prefHeight="16.0" prefWidth="63.0" styleClass="menu-label" stylesheets="@css/style.css" text="Product" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+            <HBox fx:id="Menu_2" alignment="CENTER" onMouseClicked="#Menu_2Click" prefHeight="52.0" prefWidth="172.0" spacing="10.0" styleClass="icon1" stylesheets="@css/style.css">
+               <children>
+                  <ImageView fx:id="icon2_imgview" fitHeight="21.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Endow.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="MenuLabel2" prefHeight="16.0" prefWidth="66.0" styleClass="menu-label" stylesheets="@css/style.css" text="Voucher" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="52.0" prefWidth="175.0" spacing="10.0" stylesheets="@css/style.css">
+               <children>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" styleClass="keranjang-view1">
+                     <image>
+                        <Image url="@img/Cart.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="16.0" prefWidth="76.0" styleClass="menu-label" stylesheets="@css/style.css" text="Keranjang" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox prefHeight="260.0" prefWidth="175.0" />
+            <HBox prefHeight="131.0" prefWidth="175.0" styleClass="second-color" stylesheets="@css/style.css" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane fx:id="Main_Page" onMouseClicked="#Menu_2Click" prefHeight="200.0" prefWidth="1055.0" styleClass="menu-label" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

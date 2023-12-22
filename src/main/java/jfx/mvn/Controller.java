@@ -1,6 +1,7 @@
 package jfx.mvn;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -15,21 +16,19 @@ import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 public class Controller {
-    Connection con;
-    Statement stat;
-    ResultSet rs;
-    String sql;
+    private Alert alert;
+    private Connection connect;
+    private PreparedStatement prepare;
+    private ResultSet result;
 
     public Controller() {
-        KonektorSQL DB = new KonektorSQL();
-        DB.connect();
-        con = DB.con;
-        stat = DB.stm;
     }
 
     @FXML
@@ -43,52 +42,61 @@ public class Controller {
 
     @FXML
     void L_Button(ActionEvent event) {
-        try {
-            String Username = Username_Box.getText();
-            String Pass = Password.getText();
 
-            stat = con.createStatement();
-            String sql = "select * from register_user where Username = '" + Username + "' and Password = '" + Pass
-                    + "'";
+        if (Username_Box.getText().isEmpty() || Password.getText().isEmpty()) {
+            alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Incorrect Username/Password");
+            alert.showAndWait();
+        } else {
+            String selectData = "select Username,Password from register_user where Username = ? and Password = ?";
+            connect = KonektorSQL.connectDB();
 
-            ResultSet rs = stat.executeQuery(sql);
+            try {
+                prepare = connect.prepareStatement(selectData);
+                prepare.setString(1, Username_Box.getText());
+                prepare.setString(2, Password.getText());
 
-            if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Login Berhasil");
+                result = prepare.executeQuery();
 
-                // App.setRoot("Dashboard");
-                // Load the Dashboard.fxml
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
-                Parent root = loader.load();
+                if (result.next()) {
+                    data.username = Username_Box.getText();
 
-                // Get the current stage from one of the components
-                Stage stage = (Stage) Username_Box.getScene().getWindow();
+                    alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Successfully Login!");
+                    alert.showAndWait();
 
-                // Set the scene to Dashboard
-                stage.setScene(new Scene(root));
-                // Center the stage on the screen
-                Screen screen = Screen.getPrimary();
-                Rectangle2D bounds = screen.getVisualBounds();
-                double centerX = bounds.getMinX() + (bounds.getWidth() / 2);
-                double centerY = bounds.getMinY() + (bounds.getHeight() / 2);
-                stage.setX(centerX - (stage.getWidth() / 2));
-                stage.setY(centerY - (stage.getHeight() / 2));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+                    Parent root = loader.load();
 
-                stage.show();
+                    // Get the current stage from one of the components
+                    Stage stage = (Stage) Username_Box.getScene().getWindow();
+
+                    // Set the scene to Dashboard
+                    stage.setScene(new Scene(root));
+                    // Center the stage on the screen
+                    Screen screen = Screen.getPrimary();
+                    Rectangle2D bounds = screen.getVisualBounds();
+                    double centerX = bounds.getMinX() + (bounds.getWidth() / 2);
+                    double centerY = bounds.getMinY() + (bounds.getHeight() / 2);
+                    stage.setX(centerX - (stage.getWidth() / 2));
+                    stage.setY(centerY - (stage.getHeight() / 2));
+
+                    stage.show();
+                } else {
+                    alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Error Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Incorrect Username/Password");
+                    alert.showAndWait();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
-            else {
-                JOptionPane.showMessageDialog(null, "Login Gagal");
-                Username_Box.setText("");
-                Password.setText("");
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-
-        System.out.println(Username_Box.getText());
-        System.out.println(Password.getText());
     }
 
     @FXML

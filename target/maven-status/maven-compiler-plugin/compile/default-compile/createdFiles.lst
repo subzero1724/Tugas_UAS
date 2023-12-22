@@ -1,7 +1,12 @@
+jfx\mvn\productData.class
+jfx\mvn\signup_control.class
 module-info.class
 jfx\mvn\SecondaryController.class
+jfx\mvn\initialize.class
 jfx\mvn\KonektorSQL.class
+jfx\mvn\Product_Control.class
 jfx\mvn\Controller.class
+jfx\mvn\Card_Control.class
 jfx\mvn\App.class
 jfx\mvn\PrimaryController.class
 jfx\mvn\Controller_Dashboard.class
