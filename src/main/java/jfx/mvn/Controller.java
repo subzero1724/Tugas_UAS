@@ -69,7 +69,7 @@ public class Controller {
                     alert.setContentText("Successfully Login!");
                     alert.showAndWait();
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Admin_Page.fxml"));
                     Parent root = loader.load();
 
                     // Get the current stage from one of the components

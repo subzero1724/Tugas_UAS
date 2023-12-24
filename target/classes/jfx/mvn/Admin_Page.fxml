@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1230.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="640.0" prefWidth="138.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="8.0" layoutY="7.0" prefHeight="626.0" prefWidth="159.0" spacing="5.0" style="-fx-background-radius: 20;" styleClass="base-color" stylesheets="@css/style.css">
+               <children>
+                  <Pane prefHeight="210.0" prefWidth="148.0">
+                     <children>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="77.0" prefHeight="51.0" prefWidth="146.0">
+                           <children>
+                              <Label text="Ez" textFill="#ff3c3c">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Shop" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="29.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="129.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label text="Dashboard" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="129.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label prefHeight="15.0" prefWidth="59.0" text="Income" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="129.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label text="Graphic" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="129.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label text="LogOut" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

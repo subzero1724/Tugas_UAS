@@ -17,7 +17,19 @@
    <top>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="59.0" prefWidth="1230.0" spacing="2.0" styleClass="base-color" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="59.0" prefWidth="228.0" />
+            <HBox alignment="CENTER" prefHeight="59.0" prefWidth="193.0">
+               <children>
+                  <Label text="Ez" textFill="#ff2e2e">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label text="Shop" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="28.0" />
+                     </font>
+                  </Label>
+               </children></HBox>
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="48.0" prefWidth="844.0" spacing="10.0" styleClass="round-layout" stylesheets="@css/style.css">
                <children>
                   <TextField alignment="CENTER" maxWidth="-Infinity" prefHeight="16.0" prefWidth="784.0" promptText="Search" styleClass="transparant" stylesheets="@css/style.css">
