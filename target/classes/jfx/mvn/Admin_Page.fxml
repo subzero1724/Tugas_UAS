@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1230.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="Border_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1230.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.admin.AdminPage_Control">
    <left>
       <AnchorPane prefHeight="640.0" prefWidth="138.0" BorderPane.alignment="CENTER">
          <children>
@@ -21,24 +21,24 @@
                            <children>
                               <Label text="Ez" textFill="#ff3c3c">
                                  <font>
-                                    <Font name="Arial Rounded MT Bold" size="29.0" />
+                                    <Font name="SansSerif Bold Italic" size="29.0" />
                                  </font>
                               </Label>
                               <Label text="Shop" textFill="WHITE">
                                  <font>
-                                    <Font name="Arial Rounded MT Bold" size="29.0" />
+                                    <Font name="SansSerif Bold Italic" size="29.0" />
                                  </font>
                               </Label>
                            </children>
                         </HBox>
                      </children>
                   </Pane>
-                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="129.0">
+                  <HBox fx:id="Inventory_Button" alignment="CENTER_LEFT" onMouseClicked="#Inventory_Click" prefHeight="47.0" prefWidth="129.0">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label text="Dashboard" textFill="WHITE">
+                        <Label text="Inventory" textFill="WHITE">
                            <font>
-                              <Font name="Arial Rounded MT Bold" size="16.0" />
+                              <Font name="Roboto Medium" size="18.0" />
                            </font>
                         </Label>
                      </children>
@@ -46,9 +46,9 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="129.0">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label prefHeight="15.0" prefWidth="59.0" text="Income" textFill="WHITE">
+                        <Label prefHeight="20.0" prefWidth="71.0" text="Income" textFill="WHITE">
                            <font>
-                              <Font name="Arial Rounded MT Bold" size="16.0" />
+                              <Font name="Roboto Medium" size="18.0" />
                            </font>
                         </Label>
                      </children>
@@ -58,7 +58,7 @@
                         <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
                         <Label text="Graphic" textFill="WHITE">
                            <font>
-                              <Font name="Arial Rounded MT Bold" size="16.0" />
+                              <Font name="Roboto Medium" size="18.0" />
                            </font>
                         </Label>
                      </children>
@@ -68,7 +68,7 @@
                         <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
                         <Label text="LogOut" textFill="WHITE">
                            <font>
-                              <Font name="Arial Rounded MT Bold" size="16.0" />
+                              <Font name="Roboto Medium" size="18.0" />
                            </font>
                         </Label>
                      </children>
@@ -78,4 +78,7 @@
          </children>
       </AnchorPane>
    </left>
+   <center>
+      <AnchorPane fx:id="Main_Page" prefHeight="634.0" prefWidth="1063.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

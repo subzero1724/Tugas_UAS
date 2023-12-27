@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="600.0" styleClass="base-color" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.admin.AddPane_Control">
+   <children>
+      <Pane layoutX="19.0" layoutY="14.0" prefHeight="402.0" prefWidth="562.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" styleClass="white-background" stylesheets="@css/style.css">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.5263158082962036" green="0.5263158082962036" blue="0.5263158082962036" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <TextField fx:id="Product_name" layoutX="130.0" layoutY="67.0" prefHeight="25.0" prefWidth="163.0" />
+            <Label layoutX="11.0" layoutY="67.0" prefHeight="17.0" prefWidth="117.0" text="Product Name">
+               <font>
+                  <Font name="SansSerif Regular" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="113.0" prefHeight="17.0" prefWidth="117.0" text="Product Type">
+               <font>
+                  <Font name="SansSerif Regular" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="Product_Stocks" layoutX="130.0" layoutY="158.0" prefHeight="25.0" prefWidth="163.0" />
+            <Label layoutX="11.0" layoutY="158.0" prefHeight="17.0" prefWidth="117.0" text="Stocks">
+               <font>
+                  <Font name="SansSerif Regular" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="Product_Type" layoutX="130.0" layoutY="113.0" prefHeight="25.0" prefWidth="163.0" />
+            <TextField fx:id="Product_Price" layoutX="130.0" layoutY="204.0" prefHeight="17.0" prefWidth="163.0" />
+            <Label layoutX="11.0" layoutY="208.0" prefHeight="17.0" prefWidth="117.0" text="Price/Item">
+               <font>
+                  <Font name="SansSerif Regular" size="15.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="153.0" fitWidth="163.0" layoutX="376.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="376.0" layoutY="168.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="163.0" text="Import Image" />
+            <Pane layoutY="299.0" prefHeight="104.0" prefWidth="562.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" styleClass="second-color" stylesheets="@css/style.css" />
+            <Button fx:id="Add_Button" layoutX="14.0" layoutY="246.0" mnemonicParsing="false" onAction="#Add_Clicks" prefHeight="40.0" prefWidth="86.0" text="Add" />
+            <Button fx:id="Update_Button" layoutX="109.0" layoutY="246.0" mnemonicParsing="false" onAction="#Update_Clicks" prefHeight="40.0" prefWidth="86.0" text="Update" />
+            <TextField fx:id="Product_Id" layoutX="130.0" layoutY="26.0" prefHeight="25.0" prefWidth="163.0" />
+            <Label layoutX="11.0" layoutY="26.0" prefHeight="17.0" prefWidth="117.0" text="Product ID">
+               <font>
+                  <Font name="SansSerif Regular" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

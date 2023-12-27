@@ -49,6 +49,36 @@ public class Controller {
             alert.setHeaderText(null);
             alert.setContentText("Incorrect Username/Password");
             alert.showAndWait();
+        }
+
+        else if (Username_Box.getText().equals("admin") && Password.getText().equals("admin")) {
+
+            try {
+                alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Successfully Login!, Hello Admin");
+                alert.showAndWait();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Admin_Page.fxml"));
+                Parent root = loader.load();
+
+                // Get the current stage from one of the components
+                Stage stage = (Stage) Username_Box.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                // Center the stage on the screen
+                Screen screen = Screen.getPrimary();
+                Rectangle2D bounds = screen.getVisualBounds();
+                double centerX = bounds.getMinX() + (bounds.getWidth() / 2);
+                double centerY = bounds.getMinY() + (bounds.getHeight() / 2);
+                stage.setX(centerX - (stage.getWidth() / 2));
+                stage.setY(centerY - (stage.getHeight() / 2));
+
+                stage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         } else {
             String selectData = "select Username,Password from register_user where Username = ? and Password = ?";
             connect = KonektorSQL.connectDB();
@@ -69,7 +99,7 @@ public class Controller {
                     alert.setContentText("Successfully Login!");
                     alert.showAndWait();
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Admin_Page.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
                     Parent root = loader.load();
 
                     // Get the current stage from one of the components

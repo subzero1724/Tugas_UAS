@@ -5,5 +5,8 @@ module jfx.mvn {
     requires java.desktop;
 
     opens jfx.mvn to javafx.fxml;
+    opens jfx.mvn.admin to javafx.fxml;
+
     exports jfx.mvn;
+    exports jfx.mvn.admin;
 }
