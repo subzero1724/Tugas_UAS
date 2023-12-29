@@ -11,8 +11,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="600.0" styleClass="base-color" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.admin.AddPane_Control">
+<AnchorPane fx:id="Add_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="600.0" styleClass="base-color" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.admin.AddPane_Control">
    <children>
       <Pane layoutX="19.0" layoutY="14.0" prefHeight="402.0" prefWidth="562.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" styleClass="white-background" stylesheets="@css/style.css">
          <effect>
@@ -47,8 +46,8 @@
                   <Font name="SansSerif Regular" size="15.0" />
                </font>
             </Label>
-            <ImageView fitHeight="153.0" fitWidth="163.0" layoutX="376.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="376.0" layoutY="168.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="163.0" text="Import Image" />
+            <ImageView fx:id="Inv_Img" fitHeight="153.0" fitWidth="163.0" layoutX="376.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="Import_Button" layoutX="376.0" layoutY="168.0" mnemonicParsing="false" onAction="#Import_Clicks" prefHeight="33.0" prefWidth="163.0" text="Import Image" />
             <Pane layoutY="299.0" prefHeight="104.0" prefWidth="562.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" styleClass="second-color" stylesheets="@css/style.css" />
             <Button fx:id="Add_Button" layoutX="14.0" layoutY="246.0" mnemonicParsing="false" onAction="#Add_Clicks" prefHeight="40.0" prefWidth="86.0" text="Add" />
             <Button fx:id="Update_Button" layoutX="109.0" layoutY="246.0" mnemonicParsing="false" onAction="#Update_Clicks" prefHeight="40.0" prefWidth="86.0" text="Update" />
