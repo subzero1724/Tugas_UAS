@@ -65,7 +65,7 @@ public class Card_Control implements Initializable {
         String path = "File:" + prodData.getImage();
         image = new Image(path, 200, 150, false, true);
         Image_Barang.setImage(image);
-        // pr = prodData.getPrice();
+        pr = prodData.getPrice();
 
     }
 

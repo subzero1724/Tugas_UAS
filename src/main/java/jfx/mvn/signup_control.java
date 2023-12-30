@@ -3,7 +3,10 @@ package jfx.mvn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
@@ -17,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import jfx.mvn.admin.AddPane_Control;
 
 public class signup_control {
     private Connection connect;
@@ -40,12 +44,33 @@ public class signup_control {
 
     private Alert alert;
 
+    public int getNextCustomerId() {
+        int nextCustomerId = 1;
+
+        try {
+            connect = KonektorSQL.connectDB();
+            String sql = "SELECT MAX(CAST(SUBSTRING(customer_id, LOCATE('-', customer_id) + 1) AS SIGNED)) AS no FROM register_user WHERE customer_id LIKE ?";
+            PreparedStatement preparedStatement = connect.prepareStatement(sql);
+            preparedStatement.setString(1, "CST-%");
+            result = preparedStatement.executeQuery();
+
+            if (result.next()) {
+                nextCustomerId = result.getInt("no") + 1;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddPane_Control.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nextCustomerId;
+    }
+
     @FXML
     void SignUp_action(ActionEvent event) {
         if (Username_B.getText().isEmpty() || Password_B.getText().isEmpty() || Email_B.getText().isEmpty()) {
             showAlert(AlertType.ERROR, "Error Message", "Please fill all blank fields");
         } else {
-            String regData = "INSERT INTO register_user (Username, Email, Password) VALUES (?, ?, ?)";
+            int nextCustomerId = getNextCustomerId();
+            String regData = "INSERT INTO register_user (customer_id,Username, Email, Password) VALUES (?, ?, ?, ?)";
             String checkUsername = "SELECT Username FROM register_user WHERE Username = ?";
 
             try (Connection connect = KonektorSQL.connectDB();
@@ -66,9 +91,10 @@ public class signup_control {
                         Password_B.setText("");
                     } else {
                         try (PreparedStatement insertStmt = connect.prepareStatement(regData)) {
-                            insertStmt.setString(1, Username_B.getText());
-                            insertStmt.setString(2, Email_B.getText());
-                            insertStmt.setString(3, Password_B.getText());
+                            insertStmt.setString(1, "CST-" + String.format("%03d", nextCustomerId));
+                            insertStmt.setString(2, Username_B.getText());
+                            insertStmt.setString(3, Email_B.getText());
+                            insertStmt.setString(4, Password_B.getText());
 
                             insertStmt.executeUpdate();
                             showAlert(AlertType.INFORMATION, "Information Message", "Successfully registered Account!");
