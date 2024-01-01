@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
@@ -18,6 +19,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 public class Card_Control implements Initializable {
+
+    @FXML
+    private Label Stock_Label;
 
     @FXML
     private Button Btn_Keranjang;
@@ -53,6 +57,10 @@ public class Card_Control implements Initializable {
 
     private Alert alert;
 
+    public Card_Control() {
+
+    }
+
     public void setData(productData prodData) {
         this.prodData = prodData;
 
@@ -63,8 +71,10 @@ public class Card_Control implements Initializable {
         Nama_Barang.setText(prodData.getProductName());
         Harga_Barang.setText("Rp." + String.valueOf(prodData.getPrice()));
         String path = "File:" + prodData.getImage();
-        image = new Image(path, 200, 150, false, true);
+        image = new Image(path, 153, 160, false, true);
+        Image_Barang.getStyleClass().add("rounded-image");
         Image_Barang.setImage(image);
+        Stock_Label.setText("Stock Available : " + String.valueOf(prodData.getStock()));
         pr = prodData.getPrice();
 
     }
@@ -81,6 +91,54 @@ public class Card_Control implements Initializable {
 
     public void AddKeranjang() {
 
+        qty = Prod_Spinner.getValue();
+        String check = "";
+        String checkAvailable = "SELECT status FROM product WHERE prod_id = '"
+                + prodID + "'";
+
+        connect = KonektorSQL.connectDB();
+
+        try {
+            int checkStck = 0;
+            String checkStock = "SELECT stock FROM product WHERE prod_id = '"
+                    + prodID + "'";
+
+            prepare = connect.prepareStatement(checkStock);
+            result = prepare.executeQuery();
+
+            if (result.next()) {
+                checkStck = result.getInt("stock");
+            }
+
+            if (checkStck == 0) {
+
+                String updateStock = "UPDATE product SET prod_name ='"
+                        + Nama_Barang.getText() + "', type = '"
+                        + type + "', stock = 0, price = '"
+                        + pr + "', status = 'Out Of Stocks', image = '"
+                        + prod_image + "', date = '" + prod_date + "' WHERE prod_id = '"
+                        + prodID + "' ";
+            }
+            prepare = connect.prepareStatement(checkAvailable);
+            result = prepare.executeQuery();
+
+            if (result.next()) {
+                check = result.getString("status");
+            }
+
+            if (!check.equals("Ready") || qty == 0) {
+                alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Something Wrong :3");
+                alert.showAndWait();
+            } else {
+                prod_image = prod_image.replace("\\", "\\\\");
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

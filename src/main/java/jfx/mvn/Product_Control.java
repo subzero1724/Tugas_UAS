@@ -62,10 +62,12 @@ public class Product_Control implements Initializable {
                         rs.getString("type"),
                         rs.getInt("stock"),
                         rs.getDouble("price"),
+                        rs.getString("status"),
                         rs.getString("image"),
                         rs.getDate("date"));
                 listdata.add(Prod);
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

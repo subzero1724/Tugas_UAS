@@ -23,6 +23,7 @@ public class Controller_Dashboard implements Initializable {
     URL imageUrl_1En, imageUrl_1Ex, imageUrl_2En, imageUrl_2Ex;
     private AtomicBoolean Menu1_clicked = new AtomicBoolean(false);
     private AtomicBoolean Menu2_clicked = new AtomicBoolean(false);
+    private AtomicBoolean Menu3_clicked = new AtomicBoolean(false);
 
     public Controller_Dashboard() {
         imageUrl_1En = getClass().getResource("/jfx/mvn/img/box_black.png");
@@ -51,6 +52,9 @@ public class Controller_Dashboard implements Initializable {
     private HBox Menu_2;
 
     @FXML
+    private HBox Menu_3;
+
+    @FXML
     private ImageView icon1_imgview;
 
     @FXML
@@ -74,10 +78,6 @@ public class Controller_Dashboard implements Initializable {
         icon2_imgview.setImage(new Image(imageUrl_2Ex.toString()));
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
     // private void handleMenuClick(HBox menu, AtomicBoolean clicked, Label label,
     // ImageView icon) throws IOException {
     // resetMenuStyles();
@@ -114,5 +114,18 @@ public class Controller_Dashboard implements Initializable {
 
             Menu2_clicked.set(true);
         }
+    }
+
+    @FXML
+    void Menu_3Click(MouseEvent event) throws IOException {
+        if (!Menu3_clicked.get()) {
+            AnchorPane view = FXMLLoader.load(getClass().getResource("Keranjang_Page.fxml"));
+            Border_Pane.setCenter(view);
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }

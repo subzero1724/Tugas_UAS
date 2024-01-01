@@ -14,14 +14,13 @@ public class productData {
     private Date date;
     private Integer quantity;
 
-    public productData(Integer id, String productId,
-            String productName, String type, Integer stock,
-            Double price, String status, String image, Date date) {
+    public productData(Integer id, String productId, String productName, String type, Integer stock, Double price,
+            String status, String image, Date date) {
         this.id = id;
         this.productId = productId;
         this.productName = productName;
         this.type = type;
-        this.stock = stock;
+        this.stock = stock; // Ini harus menginisialisasi nilai stock
         this.price = price;
         this.status = status;
         this.image = image;

@@ -105,7 +105,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="52.0" prefWidth="175.0" spacing="10.0" stylesheets="@css/style.css">
+            <HBox fx:id="Menu_3" alignment="CENTER" onMouseClicked="#Menu_3Click" prefHeight="52.0" prefWidth="175.0" spacing="10.0" stylesheets="@css/style.css">
                <children>
                   <ImageView fitHeight="20.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" styleClass="keranjang-view1">
                      <image>
