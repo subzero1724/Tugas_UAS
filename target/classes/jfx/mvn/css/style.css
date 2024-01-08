@@ -13,6 +13,10 @@
     -fx-background-color:rgba(0,0,0,0);
     -fx-text-fill: #fff
 }
+.Payment_Transparent{
+    -fx-background-color:rgba(0,0,0,0);
+    -fx-text-fill: #000000
+}
 
 .round-layout{
     -fx-border-radius:25;
@@ -27,4 +31,7 @@
     -fx-border-width: 0;
     /* Atau ukuran yang Anda inginkan */
     -fx-border-color: transparent;
+}
+.PopUp_transparant {
+    -fx-background-color: rgb(221, 221, 221);
 }

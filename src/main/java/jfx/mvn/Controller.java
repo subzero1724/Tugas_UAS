@@ -92,6 +92,7 @@ public class Controller {
 
                 if (result.next()) {
                     data.username = Username_Box.getText();
+                    data.password = Password.getText();
 
                     alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information Message");

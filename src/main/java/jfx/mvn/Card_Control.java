@@ -6,8 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+import java.util.Date;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -68,6 +71,7 @@ public class Card_Control implements Initializable {
         prod_date = String.valueOf(prodData.getDate());
         type = prodData.getType();
         prodID = prodData.getProductId();
+
         Nama_Barang.setText(prodData.getProductName());
         Harga_Barang.setText("Rp." + String.valueOf(prodData.getPrice()));
         String path = "File:" + prodData.getImage();
@@ -89,7 +93,11 @@ public class Card_Control implements Initializable {
     private double totalP;
     private double pr;
 
-    public void AddKeranjang() {
+    @FXML
+    void BtnKeranjang_Clicks(ActionEvent event) {
+
+        Controller_Dashboard cDashboard = new Controller_Dashboard();
+        cDashboard.getCustomerId(data.username, data.password);
 
         qty = Prod_Spinner.getValue();
         String check = "";
@@ -133,7 +141,62 @@ public class Card_Control implements Initializable {
                 alert.setContentText("Something Wrong :3");
                 alert.showAndWait();
             } else {
-                prod_image = prod_image.replace("\\", "\\\\");
+                if (checkStck < qty) {
+                    alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Error Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Invalid. This product is Out of stock");
+                    alert.showAndWait();
+                } else {
+                    prod_image = prod_image.replace("\\", "\\\\");
+
+                    String insertData = "INSERT INTO customer"
+                            + "(customer_id, prod_id, prod_name, type, quantity, price, date, image, Username) "
+                            + "VALUES(?,?,?,?,?,?,?,?,?)";
+
+                    prepare = connect.prepareStatement(insertData);
+                    prepare.setString(1, data.cID);
+                    prepare.setString(2, prodID);
+                    prepare.setString(3, Nama_Barang.getText());
+                    prepare.setString(4, type);
+                    prepare.setString(5, String.valueOf(qty));
+
+                    totalP = (qty * pr);
+
+                    prepare.setString(6, String.valueOf(totalP));
+                    Date date = new Date();
+                    java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+                    prepare.setString(7, String.valueOf(sqlDate));
+
+                    prepare.setString(8, prod_image);
+                    prepare.setString(9, data.username);
+
+                    prepare.executeUpdate();
+
+                    int upStock = checkStck - qty;
+
+                    System.out.println("Date: " + prod_date);
+                    System.out.println("Image: " + prod_image);
+
+                    String updateStock = "UPDATE product SET prod_name = '"
+                            + Nama_Barang.getText() + "', type = '"
+                            + type + "', stock = " + upStock + ", price = " + pr
+                            + ", status = '"
+                            + check + "', image = '"
+                            + prod_image + "', date = '"
+                            + prod_date + "' WHERE prod_id = '"
+                            + prodID + "'";
+
+                    prepare = connect.prepareStatement(updateStock);
+                    prepare.executeUpdate();
+
+                    alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Successfully Added!");
+                    alert.showAndWait();
+
+                }
 
             }
         } catch (Exception e) {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
@@ -34,10 +35,13 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="29.0" prefWidth="140.0" spacing="5.0">
          <children>
-            <Button fx:id="Btn_Keranjang" mnemonicParsing="false" prefHeight="37.0" prefWidth="36.0" style="-fx-background-radius: 5; -fx-background-color: #F5D7DB;" stylesheets="@css/signUp.css" text="+">
+            <Button fx:id="Btn_Keranjang" mnemonicParsing="false" onAction="#BtnKeranjang_Clicks" prefHeight="37.0" prefWidth="36.0" style="-fx-background-radius: 5; -fx-background-color: #F5D7DB;" stylesheets="@css/signUp.css" text="+">
                <font>
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Spinner fx:id="Prod_Spinner" prefHeight="39.0" prefWidth="115.0" />
          </children>

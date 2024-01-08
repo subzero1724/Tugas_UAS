@@ -17,7 +17,7 @@
          <children>
             <ScrollPane layoutX="7.0" layoutY="8.0" prefHeight="445.0" prefWidth="1009.0" style="-fx-background-color: #ffff;">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="626.0" prefWidth="998.0" style="-fx-background-color: #ffff;">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="3000.0" prefWidth="998.0" style="-fx-background-color: #ffff;">
                      <children>
                         <GridPane fx:id="Keranjang_Grid" layoutX="8.0" layoutY="6.0" prefHeight="0.0" prefWidth="0.0">
                           <rowConstraints>

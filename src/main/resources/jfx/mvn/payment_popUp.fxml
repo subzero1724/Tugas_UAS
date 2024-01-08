@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="PopUp_Payment" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="547.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" styleClass="base-color" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.Keranjang.PopUp_Payment_Control">
+   <children>
+      <VBox layoutY="62.0" prefHeight="92.0" prefWidth="547.0" styleClass="PopUp_transparant" stylesheets="@css/style.css">
+         <children>
+            <HBox fx:id="Tunai" alignment="CENTER_LEFT" onMouseClicked="#Tunai_Click" prefHeight="63.0" prefWidth="547.0">
+               <children>
+                  <HBox prefHeight="45.0" prefWidth="19.0" />
+                  <Label text="Tunai">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox fx:id="Non_Tunai" alignment="CENTER_LEFT" onMouseClicked="#NonTunai_Click" prefHeight="63.0" prefWidth="547.0">
+               <children>
+                  <HBox prefHeight="45.0" prefWidth="19.0" />
+                  <Label text="Non Tunai">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+         </children></VBox>
+      <Label layoutX="14.0" layoutY="14.0" text="Pilih Metode Pembayaran" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="Close_btn" layoutX="508.0" layoutY="14.0" onMouseClicked="#Close_Click" text="X" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+   </children>
+</AnchorPane>

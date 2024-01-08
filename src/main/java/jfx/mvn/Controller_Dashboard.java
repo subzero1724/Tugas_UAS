@@ -7,8 +7,14 @@ import javafx.fxml.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,6 +25,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class Controller_Dashboard implements Initializable {
+
+    private Connection connect;
+    private PreparedStatement prepare;
+    private ResultSet result;
 
     URL imageUrl_1En, imageUrl_1Ex, imageUrl_2En, imageUrl_2Ex;
     private AtomicBoolean Menu1_clicked = new AtomicBoolean(false);
@@ -60,6 +70,28 @@ public class Controller_Dashboard implements Initializable {
     @FXML
     private ImageView icon2_imgview;
 
+    public void getCustomerId(String username, String password) {
+        String customerId = "Kosong";
+        try {
+            connect = KonektorSQL.connectDB();
+            String sql = "SELECT customer_id FROM register_user WHERE Username = ? AND Password = ?";
+            PreparedStatement preparedStatement = connect.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            result = preparedStatement.executeQuery();
+
+            if (result.next()) {
+                customerId = result.getString("customer_id");
+            }
+
+            data.cID = customerId;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(signup_control.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     private void setMenuStyles(HBox menu, Label label) {
         menu.setStyle("-fx-background-color: #F5D7DB");
         label.setStyle("-fx-text-fill: #1B3358");
@@ -98,6 +130,7 @@ public class Controller_Dashboard implements Initializable {
 
             AnchorPane view = FXMLLoader.load(getClass().getResource("Product_Page.fxml"));
             Border_Pane.setCenter(view);
+            // System.out.println(getCustomerId(data.username, data.password));
 
             Menu1_clicked.set(true);
         }

@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="822.0" style="-fx-background-radius: 10; -fx-background-color: #ffff; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.Keranjang.KeranjangCard_Control">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="961.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.Keranjang.KeranjangCard_Control">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="165.0" prefWidth="822.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="165.0" prefWidth="961.0">
          <children>
             <Pane prefHeight="165.0" prefWidth="27.0" />
-            <ImageView fitHeight="127.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="KeranjangIMG_View" fitHeight="127.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true" />
             <Pane prefHeight="165.0" prefWidth="38.0" />
             <VBox prefHeight="165.0" prefWidth="199.0">
                <children>
                   <VBox prefHeight="20.0" prefWidth="126.0" />
-                  <Label text="Name Of Product">
+                  <Label fx:id="Keranjang_ProductName" text="Name Of Product">
                      <font>
                         <Font name="SansSerif Bold" size="18.0" />
                      </font>
                   </Label>
-                  <VBox prefHeight="50.0" prefWidth="192.0" />
+                  <VBox prefHeight="32.0" prefWidth="199.0" />
                   <HBox prefHeight="25.0" prefWidth="182.0" spacing="5.0">
                      <children>
                         <Label text="Items Code:">
@@ -31,7 +34,7 @@
                               <Font name="SansSerif Regular" size="17.0" />
                            </font>
                         </Label>
-                        <Label text="XXX">
+                        <Label fx:id="Keranjang_ProductID" text="XXX">
                            <font>
                               <Font name="SansSerif Regular" size="17.0" />
                            </font>
@@ -45,55 +48,52 @@
                               <Font name="SansSerif Regular" size="17.0" />
                            </font>
                         </Label>
-                        <Label text="XXX">
+                        <Label fx:id="Keranjang_ProductType" text="XXX">
                            <font>
                               <Font name="SansSerif Regular" size="17.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="25.0" prefWidth="182.0" spacing="5.0">
-                     <children>
-                        <Label text="Items Price:">
-                           <font>
-                              <Font name="SansSerif Regular" size="17.0" />
-                           </font>
-                        </Label>
-                        <Label text="XXX">
-                           <font>
-                              <Font name="SansSerif Regular" size="17.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="199.0" />
                </children>
             </VBox>
-            <Pane prefHeight="165.0" prefWidth="58.0" />
+            <Pane prefHeight="165.0" prefWidth="156.0" />
             <AnchorPane prefHeight="165.0" prefWidth="401.0">
                <children>
-                  <Label layoutX="14.0" layoutY="120.0" text="Rp. XXX.XXX" textFill="#e85b5b">
+                  <Label fx:id="Keranjang_TotalPrice" layoutX="14.0" layoutY="120.0" text="Rp. XXX.XXX" textFill="#e85b5b">
                      <font>
                         <Font name="Roboto Bold" size="23.0" />
                      </font>
                   </Label>
-                  <Label layoutX="324.0" layoutY="139.0" text="X0">
+                  <Label fx:id="Keranjang_ProductQTY" layoutX="306.0" layoutY="141.0" text="X0">
                      <font>
                         <Font name="SansSerif Regular" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="350.0" layoutY="139.0" text="items">
+                  <Label layoutX="332.0" layoutY="141.0" text="items">
                      <font>
                         <Font name="SansSerif Regular" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="306.0" layoutY="7.0" text="Delete" textFill="RED">
+                  <Label layoutX="306.0" layoutY="7.0" onMouseClicked="#Delete_Btn" text="Delete" textFill="RED">
                      <font>
                         <Font name="SansSerif Regular" size="17.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Label>
                </children>
             </AnchorPane>
          </children>
       </HBox>
    </children>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.34210526943206787" green="0.34210526943206787" blue="0.34210526943206787" />
+         </color>
+      </DropShadow>
+   </effect>
 </AnchorPane>
