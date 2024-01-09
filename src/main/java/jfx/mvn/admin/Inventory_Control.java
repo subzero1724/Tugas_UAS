@@ -18,10 +18,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import jfx.mvn.KonektorSQL;
+import jfx.mvn.data;
 import jfx.mvn.productData;
+import javafx.scene.image.Image;
 
 public class Inventory_Control implements Initializable {
 
@@ -30,7 +33,7 @@ public class Inventory_Control implements Initializable {
     private ResultSet result;
 
     @FXML
-    private TableView<productData> InvTabelView;
+    public TableView<productData> InvTabelView;
 
     @FXML
     private Button Add_Button;
@@ -110,16 +113,6 @@ public class Inventory_Control implements Initializable {
 
     }
 
-    public void inventorySelectData() {
-
-        productData prodData = InvTabelView.getSelectionModel().getSelectedItem();
-        int num = InvTabelView.getSelectionModel().getSelectedIndex();
-
-        if ((num - 1) < -1) {
-            return;
-        }
-    }
-
     @FXML
     void Add_Click(ActionEvent event) {
         try {
@@ -145,11 +138,29 @@ public class Inventory_Control implements Initializable {
 
     @FXML
     void Delete_Click(ActionEvent event) {
-
     }
 
     @FXML
     void Edit_Click(ActionEvent event) {
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/jfx/mvn/AddPane.fxml"));
+            Scene scene = new Scene(loader.load());
+
+            // Create a new stage
+            Stage stage = new Stage();
+            stage.setTitle("edit Item"); // Title for the popup
+            stage.setScene(scene);
+
+            // Set the modality, so it blocks events to other windows
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            // Show the stage
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
 
     }
 

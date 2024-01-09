@@ -4,20 +4,16 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import jfx.mvn.KonektorSQL;
 import jfx.mvn.productData;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 
-public class KeranjangCard_Control implements Initializable {
+public class CardTunai_Control implements Initializable {
     private productData prodData;
     private String prodID;
     private String type;
@@ -30,22 +26,22 @@ public class KeranjangCard_Control implements Initializable {
     private ResultSet result;
 
     @FXML
-    private ImageView KeranjangIMG_View;
+    private Label ItemCode_Label;
 
     @FXML
-    private Label Keranjang_ProductID;
+    private Label ItemType_Label;
 
     @FXML
-    private Label Keranjang_ProductName;
+    private Label ProductNameLabel;
 
     @FXML
-    private Label Keranjang_ProductQTY;
+    private Label QTY_Label;
 
     @FXML
-    private Label Keranjang_ProductType;
+    private Label TotalHarga_Label;
 
     @FXML
-    private Label Keranjang_TotalPrice;
+    private ImageView Img;
 
     public void setData(productData prodData) {
         this.prodData = prodData;
@@ -55,24 +51,18 @@ public class KeranjangCard_Control implements Initializable {
         type = prodData.getType();
         prodID = prodData.getProductId();
 
-        Keranjang_ProductName.setText(prodData.getProductName());
-        Keranjang_TotalPrice.setText("Rp. " + String.valueOf(prodData.getPrice()));
+        ProductNameLabel.setText(prodData.getProductName());
+        TotalHarga_Label.setText("Rp. " + String.valueOf(prodData.getPrice()));
         String path = "File:" + prodData.getImage();
         image = new Image(path, 153, 160, false, true);
-        KeranjangIMG_View.setImage(image);
-        Keranjang_ProductQTY.setText("X" + String.valueOf(prodData.getQuantity()));
-        Keranjang_ProductID.setText(prodID);
-        Keranjang_ProductType.setText(type);
-    }
+        Img.setImage(image);
+        QTY_Label.setText("X" + String.valueOf(prodData.getQuantity()));
+        ItemCode_Label.setText(prodID);
+        ItemType_Label.setText(type);
 
-    @FXML
-    void Delete_Btn(MouseEvent event) {
-        KeranjangPage_Control Kpage = new KeranjangPage_Control();
-        Kpage.Items_Delete();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
-
 }

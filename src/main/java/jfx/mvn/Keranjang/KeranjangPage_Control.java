@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -16,7 +17,10 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -37,6 +41,9 @@ public class KeranjangPage_Control implements Initializable {
     private PreparedStatement prepare;
     private Statement statement;
     private ResultSet result;
+    private Alert alert;
+
+    productData prodData;
 
     private ObservableList<productData> KeranjangCardListData = FXCollections.observableArrayList();
 
@@ -49,7 +56,7 @@ public class KeranjangPage_Control implements Initializable {
     @FXML
     private Label Total_Label;
 
-    private double totalp;
+    public double totalp;
 
     public void DisplayTotal() {
         menuGetTotal();
@@ -110,6 +117,41 @@ public class KeranjangPage_Control implements Initializable {
         }
 
         return listData;
+    }
+
+    public void Items_Delete() {
+        // Controller_Dashboard cDashboard = new Controller_Dashboard();
+        // cDashboard.getCustomerId(data.username, data.password);
+
+        String sql = "DELETE * FROM customer WHERE id = ?";
+        connect = KonektorSQL.connectDB();
+
+        try {
+            alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to delete this order?");
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.get().equals(ButtonType.OK)) {
+                prepare = connect.prepareStatement(sql);
+                prepare.setInt(1, prodData.getId()); // Set the customer_id parameter
+                result = prepare.executeQuery();
+
+                alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("successfully Deleted!");
+                alert.showAndWait();
+
+                // TO UPDATE YOUR TABLE VIEW
+                KeranjangCardDisplay();
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void KeranjangCardDisplay() {

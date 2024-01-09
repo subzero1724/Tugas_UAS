@@ -1,6 +1,7 @@
 package jfx.mvn.admin;
 
 import jfx.mvn.data;
+import jfx.mvn.productData;
 import jfx.mvn.KonektorSQL;
 
 import java.io.File;
@@ -34,6 +35,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import jfx.mvn.admin.Inventory_Control;
 
 public class AddPane_Control implements Initializable {
 
@@ -43,10 +45,10 @@ public class AddPane_Control implements Initializable {
     private ResultSet rs;
 
     private Alert alert;
-    private Image image;
+    public Image image;
 
     @FXML
-    private ImageView Inv_Img;
+    public ImageView Inv_Img;
 
     @FXML
     private AnchorPane Add_Pane;
@@ -58,24 +60,24 @@ public class AddPane_Control implements Initializable {
     private Button Import_Button;
 
     @FXML
-    private TextField Product_Id;
+    public TextField Product_Id;
 
     @FXML
-    private TextField Product_Price;
+    public TextField Product_Price;
 
     @FXML
-    private TextField Product_Stocks;
+    public TextField Product_Stocks;
 
     @FXML
-    private ComboBox<?> Product_Type;
+    public ComboBox<?> Product_Type;
 
     @FXML
-    private TextField Product_name;
+    public TextField Product_name;
 
     @FXML
-    private Button Update_Button;
+    public Button Update_Button;
 
-    private String[] typeList = { "Foods", "Drinks", "Electrics" };
+    public String[] typeList = { "Foods", "Drinks", "Electrics" };
 
     public void inventoryTypeList() {
 

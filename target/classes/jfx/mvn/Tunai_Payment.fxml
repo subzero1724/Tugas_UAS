@@ -15,14 +15,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="875.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.mvn.Keranjang.Tunai_Control">
    <children>
-      <AnchorPane layoutX="416.0" layoutY="13.0" prefHeight="402.0" prefWidth="197.0" style="-fx-background-color: #ffff; -fx-background-radius: 10;">
+      <AnchorPane layoutX="571.0" layoutY="11.0" prefHeight="402.0" prefWidth="284.0" style="-fx-background-color: #ffff; -fx-background-radius: 10;">
          <effect>
             <DropShadow />
          </effect>
          <children>
-            <VBox layoutY="14.0" prefHeight="379.0" prefWidth="197.0">
+            <VBox layoutY="14.0" prefHeight="379.0" prefWidth="284.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="36.0" prefWidth="197.0">
                      <children>
@@ -33,7 +33,7 @@
                                     <Image url="@img/box_black.png" />
                                  </image>
                               </ImageView>
-                              <TextField prefHeight="26.0" prefWidth="122.0" promptText="Code Voucher" styleClass="Payment_Transparent" stylesheets="@css/style.css" />
+                              <TextField fx:id="Voucher_Field" prefHeight="26.0" prefWidth="122.0" promptText="Code Voucher" styleClass="Payment_Transparent" stylesheets="@css/style.css" />
                            </children>
                         </HBox>
                      </children>
@@ -44,7 +44,7 @@
                   <HBox prefHeight="317.0" prefWidth="197.0">
                      <children>
                         <VBox prefHeight="78.0" prefWidth="12.0" />
-                        <VBox prefHeight="229.0" prefWidth="172.0" spacing="4.0">
+                        <VBox prefHeight="317.0" prefWidth="263.0" spacing="4.0">
                            <children>
                               <Label prefHeight="40.0" prefWidth="151.0" text="Ringkasan Belanja">
                                  <font>
@@ -58,8 +58,8 @@
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <VBox prefHeight="23.0" prefWidth="50.0" />
-                                    <Label text="XX" textFill="#6f6f6f">
+                                    <VBox prefHeight="23.0" prefWidth="49.0" />
+                                    <Label fx:id="Total_Items_Label" text="XX" textFill="#6f6f6f">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
@@ -73,8 +73,8 @@
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <VBox prefHeight="23.0" prefWidth="48.0" />
-                                    <Label text="XX" textFill="#6f6f6f">
+                                    <VBox prefHeight="23.0" prefWidth="47.0" />
+                                    <Label fx:id="Total_Harga_Label" text="XX" textFill="#6f6f6f">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
@@ -83,13 +83,13 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="172.0" spacing="9.0">
                                  <children>
-                                    <Label text="Potongan Harga : " textFill="#6f6f6f">
+                                    <Label text="Discount : " textFill="#6f6f6f">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <VBox prefHeight="23.0" prefWidth="20.0" />
-                                    <Label text="XX" textFill="#6f6f6f">
+                                    <VBox prefHeight="23.0" prefWidth="63.0" />
+                                    <Label fx:id="Potongan_harga_Label" text="XX" textFill="#6f6f6f">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
@@ -104,10 +104,10 @@
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <VBox prefHeight="43.0" prefWidth="32.0" />
-                                    <Label text="XX" textFill="#6f6f6f">
+                                    <VBox prefHeight="31.0" prefWidth="34.0" />
+                                    <Label fx:id="Total_Label" text="XX">
                                        <font>
-                                          <Font size="13.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
                                  </children>
@@ -119,7 +119,7 @@
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="17.0" prefWidth="172.0" style="-fx-border-color: #D7D7D7;" stylesheets="@css/style.css" />
+                                    <TextField fx:id="Input_Field" prefHeight="17.0" prefWidth="172.0" style="-fx-border-color: #D7D7D7;" stylesheets="@css/style.css" />
                                  </children>
                               </VBox>
                               <VBox prefHeight="50.0" prefWidth="172.0">
@@ -129,11 +129,11 @@
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="17.0" prefWidth="172.0" style="-fx-border-color: #D7D7D7;" />
+                                    <TextField fx:id="Kembalian_Field" prefHeight="17.0" prefWidth="172.0" style="-fx-border-color: #D7D7D7;" />
                                  </children>
                               </VBox>
                               <Separator prefWidth="200.0" />
-                              <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="172.0" styleClass="base-color" stylesheets="@css/style.css" text="Beli" textFill="WHITE">
+                              <Button fx:id="btn_beli" mnemonicParsing="false" onAction="#BtnBeli_Action" prefHeight="39.0" prefWidth="268.0" styleClass="base-color" stylesheets="@css/style.css" text="Beli" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -146,11 +146,11 @@
             </VBox>
          </children>
       </AnchorPane>
-      <ScrollPane prefHeight="424.0" prefWidth="408.0">
+      <ScrollPane prefHeight="424.0" prefWidth="562.0" style="-fx-background-color: #ffff;">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1128.0" prefWidth="402.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1102.0" prefWidth="550.0" style="-fx-background-color: #ffff;">
                <children>
-                  <GridPane layoutX="1.0" layoutY="6.0" prefHeight="3.0" prefWidth="0.0">
+                  <GridPane fx:id="GridPage" layoutX="1.0" layoutY="6.0" prefHeight="3.0" prefWidth="0.0">
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
