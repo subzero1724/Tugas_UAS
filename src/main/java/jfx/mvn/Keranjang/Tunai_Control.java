@@ -189,7 +189,7 @@ public class Tunai_Control implements Initializable {
             alert.setTitle("Error Message");
             alert.setHeaderText(null);
             alert.setContentText("Uang anda Kurang Silahkan Coba lagi");
-            alert.showAndWait();
+            alert.showAndWait(); 
             Input_Field.setText("");
         } else {
             Kembalian_Field.setText(String.valueOf(kembalian));

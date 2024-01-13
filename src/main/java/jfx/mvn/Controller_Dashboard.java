@@ -142,7 +142,7 @@ public class Controller_Dashboard implements Initializable {
             resetMenuStyles();
             setMenuStyles(Menu_2, MenuLabel2);
             icon2_imgview.setImage(new Image(imageUrl_2En.toString()));
-            VBox view = FXMLLoader.load(getClass().getResource("secondary.fxml"));
+            AnchorPane view = FXMLLoader.load(getClass().getResource("VoucherPage.fxml"));
             Border_Pane.setCenter(view);
 
             Menu2_clicked.set(true);

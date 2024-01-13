@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Code_Generator",
+            "request": "launch",
+            "mainClass": "jfx.mvn/jfx.mvn.Voucher.Code_Generator",
+            "projectName": "mvn"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

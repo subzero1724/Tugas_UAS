@@ -58,6 +58,8 @@ public class KeranjangPage_Control implements Initializable {
 
     public double totalp;
 
+    private int getId;
+
     public void DisplayTotal() {
         menuGetTotal();
         Total_Label.setText("Rp." + totalp);

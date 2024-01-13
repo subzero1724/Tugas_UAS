@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -14,7 +15,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -28,6 +32,7 @@ import javafx.scene.image.Image;
 
 public class Inventory_Control implements Initializable {
 
+    private Alert alert;
     private Connection connect;
     private PreparedStatement prepare;
     private ResultSet result;
@@ -138,13 +143,56 @@ public class Inventory_Control implements Initializable {
 
     @FXML
     void Delete_Click(ActionEvent event) {
+        productData selectedProduct = InvTabelView.getSelectionModel().getSelectedItem();
+        if (selectedProduct != null) {
+            int Id = selectedProduct.getId();
+            String ProdID = selectedProduct.getProductId();
+
+            alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to DELETE Product ID: " + ProdID + "?");
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.get().equals(ButtonType.OK)) {
+                String DeleteData = "DELETE FROM product WHERE id= " + Id;
+                try {
+                    prepare = connect.prepareStatement(DeleteData);
+                    prepare.executeUpdate();
+
+                    alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Error Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("successfully Deleted!");
+                    alert.showAndWait();
+
+                    inventoryShowData();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Cancelled");
+                alert.showAndWait();
+            }
+
+        } else {
+            alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("No product selected for deletion.");
+            alert.showAndWait();
+        }
     }
 
     @FXML
     void Edit_Click(ActionEvent event) {
         try {
             // Load the FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/jfx/mvn/AddPane.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/jfx/mvn/UpdatePane.fxml"));
             Scene scene = new Scene(loader.load());
 
             // Create a new stage
@@ -167,6 +215,20 @@ public class Inventory_Control implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         inventoryShowData();
+
+        // InvTabelView.setOnMouseClicked(event -> {
+        // if (event.getClickCount() > 0) {
+        // productData selectedProduct =
+        // InvTabelView.getSelectionModel().getSelectedItem();
+        // if (selectedProduct != null) {
+
+        // productId = selectedProduct.getProductId();
+
+        // // You can use these values to do whatever you need to do with them
+        // System.out.println("Selected Product ID: " + productId);
+        // }
+        // }
+        // });
     }
 
 }

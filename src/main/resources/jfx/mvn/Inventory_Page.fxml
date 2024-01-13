@@ -33,7 +33,7 @@
                </columnResizePolicy>
             </TableView>
             <Button fx:id="Add_Button" layoutX="15.0" layoutY="558.0" mnemonicParsing="false" onAction="#Add_Click" prefHeight="40.0" prefWidth="126.0" text="Add" />
-            <Button layoutX="179.0" layoutY="558.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" text="Delete" />
+            <Button layoutX="179.0" layoutY="558.0" mnemonicParsing="false" onAction="#Delete_Click" prefHeight="40.0" prefWidth="126.0" text="Delete" />
             <Button fx:id="Edit_Button" layoutX="714.0" layoutY="558.0" mnemonicParsing="false" onAction="#Edit_Click" prefHeight="40.0" prefWidth="126.0" text="Edit" />
             <Button layoutX="882.0" layoutY="558.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" text="Print Output" />
             <HBox alignment="CENTER" layoutX="14.0" layoutY="23.0" prefHeight="52.0" prefWidth="380.0" spacing="5.0">
